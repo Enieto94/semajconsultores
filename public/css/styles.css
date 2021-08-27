@@ -1,0 +1,225 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400&display=swap');
+body{
+  font-family: Oswald;
+}
+a{
+  text-decoration: none;
+  color: #000;
+}
+
+.link-servicios{
+  display: block;
+  padding: 20px 10px;
+  color: #fff;
+  border-bottom: solid 1px transparent;
+  text-decoration: none;
+  font-size: 20px !important;
+  transition: ease-in-out all 0.3s;
+}
+.link-servicios:hover{
+  border-bottom: solid 1px #B7C53E;
+  text-decoration: none;
+  color: #fff;
+  transition: ease-in-out all 0.3s;
+}
+
+.bg-main {
+  background-color: #000 !important;
+  color: #f3f3f3 !important;
+}
+
+.content {
+  background-color: #f3f3f3;
+}
+
+.selected-category {
+  border-bottom: 2px solid #BED139;
+}
+
+.card-txt-category {
+  color: #9D9D9D;
+  font-size: 12px;
+}
+
+.card-txt-author {
+  color: #9D9D9D;
+  font-size: 14px;
+}
+
+.card-txt-date {
+  color: #9D9D9D;
+  font-size: 14px;
+}
+
+.card {
+  box-shadow: 1px 1px 5px 1px rgba(0, 0, 0, 0.6);
+  border-radius: 1.25rem;
+  width: 20rem !important;
+}
+.card .card-img-top {
+  border-top-left-radius: calc(1.25rem - 1px);
+  border-top-right-radius: calc(1.25rem - 1px);
+}
+.d-card-text{
+  overflow:hidden;
+  white-space:nowrap;
+  text-overflow: ellipsis;
+  height: 50px;
+}
+
+.post-txt {
+  color: #9D9D9D;
+}
+
+.btn-primary{
+  background: #B7C53E !important;
+}
+
+#links-info{
+  width: 80%;
+}
+#links-sm{
+  width: 10%;
+}
+
+#portada{
+  background-image: url('/images/portada.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 70vh;
+  position: relative;
+  background-attachment: fixed;
+}
+
+#portada .cover{
+  background-color: #0000008e;
+}
+#portada img{
+  width: 300px; 
+  height: auto;
+  position: absolute;
+  left: calc(50% - 150px);
+  top: calc(30% - 75px);
+}
+#portada .lema{
+  position: absolute;
+  bottom: 10px;
+  color: #fff;
+}
+.lema h2{
+  border-bottom: solid 1px #B7C53E;
+  text-align: center;
+  font-weight: bold;
+}
+.link-category{
+  font-weight: bold;
+}
+
+.link-category:hover{
+  color: #000 !important;
+  text-shadow: 0.1em 0.1em #B7C53E;
+  transition: ease-in-out 0.3s;
+}
+.verde{
+  color: #B7C53E
+}
+
+input:focus{
+  border: solid 2px#B7C53E !important;
+  outline-color: #B7C53E;
+  box-shadow: none !important;
+}
+#form{
+  border-bottom: solid 3px #B7C53E;
+  padding: 20px 0px;
+}
+
+#areas{
+  background: #080807;
+  color: #f3f3f3;
+  padding: 20px
+}
+
+footer{
+  color: #fff;
+}
+.post-link:hover{
+  color:#B7C53E;
+}
+
+.sm-icon{
+  background: transparent;
+  border-radius: 50px;
+  transition: ease-in-out 0.3s;
+  padding: 5px;
+}
+.sm-icon:hover{
+  background: #B7C53E;
+  transition: ease-in-out 0.3s;
+  
+}
+.sm-icon:hover path{
+  fill: #000;
+}
+
+#whatsapp-icon{
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+}
+
+#whatsapp-icon svg{
+  padding: 5px;
+  background: transparent;
+  background : #25d366;
+  transition: ease-in-out 0.3s;
+  border-radius: 5px;
+}
+
+#whatsapp-icon svg:hover{
+  background : #25d366;
+  border-radius: 50%;
+  transition: ease-in-out 0.3s
+}
+#whatsapp-icon svg:hover path{
+  color: #000;
+}
+
+#button-form{
+  background: #B7C53E;
+  color: #fff;
+  transform: scale(1);
+  transition: ease-in-out;
+}
+#button-form:hover{
+  transform: scale(1.1);
+  transition: ease-in-out;
+}
+.tag{
+  background: #B7C53E;
+  color: #fff;
+  border-radius: 5px;
+  font-size: 10px;
+  padding: 5px;
+}
+.card-txt-category{
+  color: #000;
+  font-weight: bold;
+  font-size: 14px;
+}
+.card-title{
+  color: #000000;
+  font-weight: bold;
+}
+
+.card-txt-author, .card-txt-date{
+  color: #351f1f;
+}
+
+.btn-success{
+  background: #B7C53E;
+  color: #fff;
+}
+.btn-success:hover{
+  color: #fff;
+}
