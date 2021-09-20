@@ -58,12 +58,13 @@ echo "<script>alert('Los campos marcados con * son obligatorios');location.href 
     $mail->From = 'info@semajconsultores.com.co'; //email de remitente desde donde se envía el correo, este caso para evitar spam es el mismo que tu correo gmail
     
     if ($mail->Send())
-    echo "<script>alert('Formulario enviado exitosamente, le responderemos lo más pronto posible.');location.href ='javascript:history.back()';</script>";
+        echo "<script>swal('Gracias por registrar sus datos', 'Será redireccionado en breve...', 'success');</script>";
     // echo "$Nombre $Correo $Telefono $Motivo $Modalidad $Fecha";
     else
-    echo "<script>alert('Error al enviar el formulario');location.href ='javascript:history.back()';</script>";
+        echo "<script>swal('Error', 'Será redireccionado en breve...', 'error');location.href ='https://semajconsultores.com.co/';</script>";
 
 }
+header('Location: https://semajconsultores.com.co/');
 
 ?>
 </body>
