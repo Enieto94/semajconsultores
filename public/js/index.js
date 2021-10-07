@@ -69,7 +69,8 @@ $(document).ready(function () {
         margin: 10,
         nav: true,
         autoplay: true,
-        autoplayTimeout: 3000,
+        autoplayTimeout: 6000,
+        smartSpeed: 4000,
         responsive: {
             0: {
                 items: 1
@@ -92,7 +93,8 @@ $(document).ready(function () {
         nav: false,
         center: true,
         autoplay: true,
-        autoplayTimeout: 2000,
+        autoplayTimeout: 5000,
+        smartSpeed: 3000,
         responsive: {
             0: {
                 items: 1
@@ -136,6 +138,22 @@ $(document).ready(function () {
             document.ataj.submit();
         }
     });
+
+    $("#btn-tcn").click(function () {
+        event.preventDefault();
+        if ($("#nombres-hv").val() == "") {
+            $("#nombres-hv").notify("El campo no debe ir vacío", { position: "top" });
+        } else if ($("#telefono--hv").val() == "") {
+            $("#telefono-hv").notify("El campo no debe ir vacío", { position: "top" });
+        } else if ($("#correo-hv").val() == "") {
+            $("#correo-hv").notify("El campo no debe ir vacío", { position: "top" });
+        } else if ($("#archivo").val() == "") {
+            $("#archivo").notify("El campo no debe ir vacío", { position: "top" });
+        } else {
+            swal("Gracias por registrar sus datos", "Será redireccionado en breve...", "success");
+            document.hv.submit();
+        }
+    });
     
     /*
         Popup de archivos pdf
@@ -163,14 +181,14 @@ function clickaction(b) {
     switch (b.id) {
         case 'terminos-condiciones':
             $('.iframe-pdf').addClass('active');
-            $('.iframe-pdf').html('<iframe src="/pdf/politicas-de-privacidad.docx&amp;embedded=true" style="width: 100%;height:420px" frameborder="0"></iframe>');
+            $('.iframe-pdf').html('<iframe src="/pdf/politicas-de-privacidad.pdf&amp;embedded=true" style="width: 100%;height:420px" frameborder="0"></iframe>');
             if ($('#ftcn').hasClass('active')) {
                 $('#ftcn').removeClass('active');
             }
             break;
         case 'politicas':
             $('.iframe-pdf').addClass('active');
-            $('.iframe-pdf').html('<iframe src="/pdf/terminos-y-condiciones.docx&amp;embedded=true" style="width: 100%;height:420px" frameborder="0"></iframe>');
+            $('.iframe-pdf').html('<iframe src="/pdf/terminos-y-condiciones.pdf&amp;embedded=true" style="width: 100%;height:420px" frameborder="0"></iframe>');
             break;
         case 'tcn':
             $('#ftcn').addClass('active');

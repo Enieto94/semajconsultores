@@ -22,7 +22,7 @@
 	<link rel="icon" type="image/ico" href="/favico.ico">
     <title>Semajconsultores - Inicio</title>
     <link rel="shortcut icon" href="favico.png">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/libs/bootstrap/bootstrap.min.css">
     <link rel="stylesheet" href="{{asset('css/styles.css')}}">
     <link rel="stylesheet" href="/libs/owl-carousel/owl.carousel.min.css">
     <link rel="stylesheet" href="/libs/owl-carousel/owl.theme.default.min.css">
@@ -48,7 +48,7 @@
             <div class="col-6 iframe-pdf">
             </div>
 
-            <form action="" method="post" id="ftcn" class="d-none p-5 flex-column col-10 col-md-4">
+            <form action="enviar-hv.php" method="post" enctype="multipart/form-data" name="hv" id="ftcn" class="d-none p-5 flex-column col-10 col-md-4" >
                 <h2>TRABAJE CON NOSOTROS</h2>
 
                 <div class="row">
@@ -56,19 +56,19 @@
                 </div>
 
                 <label for="" class="row my-2">
-                    <input type="text" placeholder="Nombres y Apellidos" name="nombres">
+                    <input type="text" placeholder="Nombres y Apellidos" name="nombres-hv" id="nombres-hv">
                 </label>
 
                 <label for="" class="row my-2">
-                    <input type="text" placeholder="Teléfono" name="telefono">
+                    <input type="text" placeholder="Teléfono" name="telefono-hv" id="telefono-hv">
                 </label>
 
                 <label for="" class="row my-2">
-                    <input type="text" placeholder="Correo" name="correo">
+                    <input type="text" placeholder="Correo" name="correo-hv" id="correo-hv">
                 </label>
 
                 <label for="" class="row my-2">
-                    <input type="file" name="hoja-de-vida">
+                    <input type="file" name="archivo" id="archivo">
                 </label>
 
                 <div class="row my-3">
@@ -151,8 +151,8 @@
         </div>
 
         <div class="row">
-            <!-- Contenido -->
             <main class="col-12 content" id="inicio">
+                <!-- Carousel portada -->
                 <div class="row">
                     <section class="owl-carousel " id="portada">
                         <div class="portada-item">
@@ -188,14 +188,14 @@
                     </div>
                 </div>
 
+                <!-- Agenda tu Asesoría Jurídica -->
                 <section class="row justify-content-center">
                     <div class="col-10" id="form">
                         <div class="row justify-content-center text-center py-4">
                             <h4><i>Abogados en Zipaquirá</i></h4>
                             <h2 class="verde">Agenda tu Asesoría Jurídica</h2>
                         </div>
-                        <form class="row justify-content-around" action="enviar.php" method="post"
-                            enctype="multipart/form-data" name="ataj">
+                        <form class="row justify-content-around" action="enviar.php" method="post" enctype="multipart/form-data" name="ataj">
                             <div class="col-md-5 form-group my-2">
                                 <input name="nombres" type="text" class="form-control" placeholder="Nombres" id="nombres">
                             </div>
@@ -231,6 +231,7 @@
                     </div>
                 </section>
 
+                <!-- Sección nosotros -->
                 <section class="row justify-content-center align-items-center my-4" id="nosotros">
                     <div class="col-md-5">
                         <div class="row">
@@ -271,7 +272,6 @@
                     </div>
                 </section>
 
-
                 <!-- Categorías -->
                 <section class="row justify-content-center text-center">
                     <h2><i>NUESTROS ARTÍCULOS</i></h2>
@@ -288,10 +288,10 @@
 
                 <!-- Posts -->
                 <section class="row justify-content-center" id="articulos">
-                    <div class="col-12">
-                        <div class="row owl-carousel my-5" id="posts-carousel">
+                        <div class="row  my-5">
                             <!-- ARTICULOS -->
                             @foreach ($posts as $post)
+                            <div class="owl-carousel" id="posts-carousel">
                                 <div class="card m-auto py-5">
                                     <img class="card-img-top" src="{{asset($post->featured)}}" alt="{{$post->title}}">
                                     <div class="card-body">
@@ -305,16 +305,22 @@
                                                 más</b></a>
                                         <hr>
                                         <div class="row">
-                                            <div class="col-8 text-left">
-                                                <span class="card-txt-author"><b>Autor: </b>{{$post->author}}</span>
+                                            <div class="col-6 text-left">
+                                                <div class="row">
+
+                                                    <span class="card-txt-author"><b>Autor: </b>{{$post->author}}</span>
+                                                </div>
                                             </div>
-                                            <div class="col-4 text-right">
-                                                <span
-                                                    class="card-txt-date">{{$post->created_at->diffForHumans()}}</span>
+                                            <div class="col-6 text-right">
+                                                <div class="row">
+
+                                                    <span class="card-txt-date">{{$post->created_at->diffForHumans()}}</span>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
+                            </div>
                             @endforeach
 
                         </div>
@@ -330,7 +336,6 @@
                                 </svg>
                             </span>
                         </div>
-                    </div>
 
                 </section>
 
@@ -437,7 +442,6 @@
                 </section>
 
                 <!-- Nuestro Equipo -->
-
                 <section class="row py-4 justify-content-around text-center" id="ne">
                     <h2 class="my-4">NUESTRO EQUIPO DE TRABAJO</h2>
 
@@ -544,11 +548,11 @@
         </div>
     </div>
 
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.min.js"></script>
+    <script src="/libs/jquery/jquery.min.js"></script>
+    <script src="/libs/bootstrap/bootstrap.min.js"></script>
     <script src="/libs/owl-carousel/owl.carousel.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/notify/0.4.2/notify.js"></script>
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="/libs/notify/notify.js"></script>
+    <script src="/libs/swal/swal.min.js"></script>
     <script src="/js/index.js"></script>
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-BK29TDXCR3"></script>

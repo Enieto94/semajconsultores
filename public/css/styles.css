@@ -456,10 +456,12 @@ input:focus{
 
 .btn-success{
   background: var(--verde);
-  color: var(--blanco);
+  color: var(--negro);
+  border: none;
 }
 .btn-success:hover{
   color: var(--blanco);
+  background: var(--negro);
 }
 #nav-items{
   width: 100%; 
