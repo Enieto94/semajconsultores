@@ -29,7 +29,7 @@
                             <th>Titulo</th>
                             <th>Contenido</th>
                             <th>Autor</th>
-                            <th>Ruta de la imagen</th>
+                            <th>Imagen</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -66,7 +66,7 @@
                             <th>Titulo</th>
                             <th>Contenido</th>
                             <th>Autor</th>
-                            <th>Ruta de la imagen</th>
+                            <th>Imagen</th>
 
                         </tr>
                     </tfoot>

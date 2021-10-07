@@ -26,7 +26,7 @@
                         <tr>
                             <th>ID</th>
                             <th>Categoría</th>
-                            <th>Accies</th>
+                            <th>Acciones</th>
                         </tr>
                     </thead>
                     <tbody>
