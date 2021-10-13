@@ -14,7 +14,7 @@
 	<meta http-equiv="pragma" content="no-cache" />
 	<meta property="og:type" content="article">
 	<meta property="og:title" content="{{$post->title}}">
-	<meta property="og:description" content="Empresa dedicada a la prestación de servicios de asesoría y consultoría en temas ambientales, mineros, jurídicos y económicos.">
+	<meta property="og:description" content="{{$post->content}}">
 	<meta property="og:image" content="{{asset($post->featured)}}">
 	<meta property="og:url" content="https://semajconsultores.com.co/">
 	<meta property="og:site_name" content="Semaj Consultores SAS - Servicios Jurídicos">
@@ -38,7 +38,7 @@
 
     <!-- POPUP -->
     <div class="row popup-container justify-content-center align-items-center pos-relative">
-        <div class="col-6 iframe-pdf">
+        <div class="col-10 iframe-pdf">
         </div>
 
         <form action="" method="post" id="ftcn" class="d-none p-5 flex-column col-10 col-md-4">
@@ -145,7 +145,7 @@
 
 @section('content')
     <section class="container-fluid content py-5" style="margin-top: 128px;">
-        <div class="row justify-content-center">
+        <div class="row justify-content-around">
             <!-- Post -->
             <div class="col-12 col-md-7 text-center">
                 <h1>{{$post->title}}</h1>
@@ -153,17 +153,17 @@
                 <img src="{{asset($post->featured)}}" alt="{{$post->title}}" class="img-fluid">
 
                 <p class="text-left mt-3 post-txt">
-                    <span>{{$post->author}}</span>
+                    <b>{{$post->author}}</b>, 
                     <span class="float-right">Publicado: {{$post->created_at->diffForHumans()}}</span>
                 </p>
-                <p class="text-left">
+                <p class="text-left" id="content">
                     {{$post->content}}
                 </p>
                 <p class="text-left post-txt"><i>Categoría: {{$post->category->name}}</i></p>
             </div>
 
             <!-- Entradas recientes -->
-            <div class="col-md-3 offset-md-1">
+            <div class="col-md-3">
                 <p>Últimas entradas</p>
                 @foreach ($latestPosts as $post)
                     <div class="row mb-4">
@@ -182,3 +182,21 @@
         </div>
     </section>
 @endsection
+    <script src="/libs/jquery/jquery.min.js"></script>
+    <script src="/libs/bootstrap/bootstrap.min.js"></script>
+    <script src="/libs/owl-carousel/owl.carousel.min.js"></script>
+    <script src="/libs/notify/notify.js"></script>
+    <script src="/libs/swal/swal.min.js"></script>
+    <script src="/libs/wow/wow.min.js"></script>
+    <script src="/js/index.js"></script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-BK29TDXCR3"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-BK29TDXCR3');
+    </script>
+</body>
+</html>

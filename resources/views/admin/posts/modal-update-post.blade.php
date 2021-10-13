@@ -1,3 +1,4 @@
+<script src="https://cdn.ckeditor.com/4.16.2/standard/ckeditor.js"></script>
 <div class="modal fade" id="modal-update-post-{{$post->id}}">
     <div class="modal-dialog">
         <div class="modal-content bg-default">
@@ -47,3 +48,6 @@
     </div>
     <!-- /.modal-dialog -->
 </div>
+<script>
+    CKEDITOR.replace( 'content' );
+</script>

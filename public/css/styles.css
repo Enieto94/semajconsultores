@@ -4,6 +4,7 @@
 body{
   font-family: Oswald;
 }
+
 a{
   text-decoration: none;
   color: var(--negro);
@@ -20,6 +21,17 @@ a{
   --negro-transparente: #000000bc;
   --gris: #9D9D9D;
   --verde-wa: #25d366
+}
+
+::-webkit-scrollbar-thumb{
+  width: 5px;
+  background: var(--verde);
+}
+::-webkit-scrollbar-track{
+  background: transparent;
+}
+::-webkit-scrollbar{
+  background: var(--negro-transparente);
 }
 
 /* Modal styles */
@@ -46,6 +58,7 @@ a{
   position: absolute;
   top: 10px;
   left: 10px;
+  cursor: pointer;
 }
 #btn-cerrar-popup svg{
   width: 24px;
@@ -274,7 +287,7 @@ a{
   max-width: unset;
 }
 .portada-item{
-  height: 40vh;
+  height: 50vh !important;
   width: 100vw;
   position: relative;
 }
@@ -359,7 +372,7 @@ a{
   overflow:hidden;
   white-space:nowrap;
   text-overflow: ellipsis;
-  height: 50px;
+  height: 44px;
 }
 
 .post-txt {
@@ -542,7 +555,7 @@ footer p{
     display: unset;
   }
   .portada-item{
-    height: 80vh;
+    height: 80vh !important;
   }
   
   #nav-items{

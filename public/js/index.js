@@ -1,4 +1,11 @@
 $(document).ready(function () {
+    
+    /*
+        Inicializar wow.js y animate.css
+        @author Edwin Nieto
+        @version 1.0
+    */
+        new WOW().init();
     /*
         Scroll smooth para secciones de la página
         @author Edwin Nieto
@@ -113,32 +120,6 @@ $(document).ready(function () {
         $('#posts-carousel').trigger('prev.owl.carousel', [300]);
     });
 
-    /*
-        Envío de formulario Agenda tu Asesoría Jurídica
-        @author Edwin Nieto
-        @version 1.0
-    */
-
-    $("#button-form").click(function () {
-        event.preventDefault();
-        if ($("#nombres").val() == "") {
-            $("#nombres").notify("El campo no debe ir vacío", { position: "top" });
-        } else if ($("#telefono").val() == "") {
-            $("#telefono").notify("El campo no debe ir vacío", { position: "top" });
-        } else if ($("#correo").val() == "") {
-            $("#correo").notify("El campo no debe ir vacío", { position: "top" });
-        } else if ($("#motivo").val() == "") {
-            $("#motivo").notify("El campo no debe ir vacío", { position: "top" });
-        } else if ($("#modalidad").val() == "") {
-            $("#modalidad").notify("El campo no debe ir vacío", { position: "top" });
-        } else if ($("#fecha").val() == "") {
-            $("#fecha").notify("El campo no debe ir vacío", { position: "top" });
-        } else {
-            swal("Gracias por registrar sus datos", "Será redireccionado en breve...", "success");
-            document.ataj.submit();
-        }
-    });
-
     $("#btn-tcn").click(function () {
         event.preventDefault();
         if ($("#nombres-hv").val() == "") {
@@ -161,12 +142,19 @@ $(document).ready(function () {
         @version 1.0
     */
 
-    $('#btn-cerrar-popup').click(function () {
+    $('#btn-cerrar-popup, .popup-container').click(function () {
         $('.popup-container').removeClass('active');
         $('.iframe-pdf').removeClass('active');
         $('#ftcn').removeClass('d-flex');
         $('#ftcn').removeClass('active');
     });
+    /*
+        Función que convierte  html
+        @author Edwin Nieto
+        @version 1.0
+    */
+    let texto = $('#content').text();
+    $('#content').html(texto);
 });
 
 /*
@@ -181,14 +169,14 @@ function clickaction(b) {
     switch (b.id) {
         case 'terminos-condiciones':
             $('.iframe-pdf').addClass('active');
-            $('.iframe-pdf').html('<iframe src="/pdf/politicas-de-privacidad.pdf&amp;embedded=true" style="width: 100%;height:420px" frameborder="0"></iframe>');
+            $('.iframe-pdf').html('<iframe src="/pdf/politicas-de-privacidad.pdf" style="width: 100%;height:80vh" frameborder="0"></iframe>');
             if ($('#ftcn').hasClass('active')) {
                 $('#ftcn').removeClass('active');
             }
             break;
         case 'politicas':
             $('.iframe-pdf').addClass('active');
-            $('.iframe-pdf').html('<iframe src="/pdf/terminos-y-condiciones.pdf&amp;embedded=true" style="width: 100%;height:420px" frameborder="0"></iframe>');
+            $('.iframe-pdf').html('<iframe src="/pdf/terminos-y-condiciones.pdf" style="width: 100%;height:80vh" frameborder="0"></iframe>');
             break;
         case 'tcn':
             $('#ftcn').addClass('active');
@@ -199,3 +187,25 @@ function clickaction(b) {
             break;
     }
 }
+
+/*
+    Función que diligencia hoja de Google Docs
+    @author Edwin Nieto
+    @version 1.0
+*/
+
+var form = document.getElementById('form-ataj');
+  form.addEventListener("submit", e => {
+    e.preventDefault();
+    fetch(form.action, {
+        method : "POST",
+        body: new FormData(document.getElementById("form-ataj")),
+    }).then(
+        response => response.json()
+    ).then((html) => {
+      // you can put any JS code here
+      swal("Gracias por registrar sus datos", "De clic en ok", "success");
+      $('input').val('');
+      $('select').val('');
+    });
+  });

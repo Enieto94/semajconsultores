@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta name="keywords" content="Servicios Jurídicos, Minero, Civil, Laboral, Ambiental, Zipaquira, Sabana Centro" />
+	<meta name="keywords" content="Servicios Jurídicos, Minero, Civil, Laboral, Ambiental, Zipaquirá, Sabana Centro" />
 	<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
 	<meta name="Resource-type" content="Document" />
 	<meta http-equiv="cache-control" content="max-age=0" />
@@ -16,7 +16,7 @@
 	<meta property="og:type" content="article">
 	<meta property="og:title" content="Semaj Consultores">
 	<meta property="og:description" content="Empresa dedicada a la prestación de servicios de asesoría y consultoría en temas ambientales, mineros, jurídicos y económicos.">
-	<meta property="og:image" content="https://semajconsultores.com.co/nuestros-servicios.jpg">
+	<meta property="og:image" content="https://semajconsultores.com.co/logo-semaj-consultores.jpg">
 	<meta property="og:url" content="https://semajconsultores.com.co/">
 	<meta property="og:site_name" content="Semaj Consultores SAS - Servicios Jurídicos">
 	<link rel="icon" type="image/ico" href="/favico.ico">
@@ -26,6 +26,7 @@
     <link rel="stylesheet" href="{{asset('css/styles.css')}}">
     <link rel="stylesheet" href="/libs/owl-carousel/owl.carousel.min.css">
     <link rel="stylesheet" href="/libs/owl-carousel/owl.theme.default.min.css">
+    <link rel="stylesheet" href="/libs/wow/animate.css">
 </head>
 
 <body>
@@ -45,7 +46,7 @@
         <!-- POPUP -->
 
         <div class="row popup-container justify-content-center align-items-center pos-relative">
-            <div class="col-6 iframe-pdf">
+            <div class="col-10 iframe-pdf">
             </div>
 
             <form action="enviar-hv.php" method="post" enctype="multipart/form-data" name="hv" id="ftcn" class="d-none p-5 flex-column col-10 col-md-4" >
@@ -150,17 +151,17 @@
             </nav>
         </div>
 
-        <div class="row">
+        <div class="row" data-wow-duration="2s" data-wow-delay="5s">
             <main class="col-12 content" id="inicio">
                 <!-- Carousel portada -->
-                <div class="row">
-                    <section class="owl-carousel " id="portada">
+                <div class="row" >
+                    <section class="owl-carousel" id="portada">
                         <div class="portada-item">
                             <div class="cover">
                             </div>
                             <img src="/images/portada.jpg" alt="">
                             <div class="lema">
-                                <h2>Derecho + Economía + Ambiente</h2>
+                                <h2 class="wow slideInLeft">Derecho + Economía + Ambiente</h2>
                             </div>
                         </div>
     
@@ -169,7 +170,7 @@
                             </div>
                             <img src="/images/portada.jpg" alt="">
                             <div class="lema">
-                                <h2>Derecho + Economía + Ambiente</h2>
+                                <h2 class="wow slideInLeft">Derecho + Economía + Ambiente</h2>
                             </div>
                         </div>
                     </section>
@@ -189,31 +190,32 @@
                 </div>
 
                 <!-- Agenda tu Asesoría Jurídica -->
-                <section class="row justify-content-center">
+                <section class="row justify-content-center wow fadeInUp">
                     <div class="col-10" id="form">
                         <div class="row justify-content-center text-center py-4">
                             <h4><i>Abogados en Zipaquirá</i></h4>
                             <h2 class="verde">Agenda tu Asesoría Jurídica</h2>
                         </div>
-                        <form class="row justify-content-around" action="enviar.php" method="post" enctype="multipart/form-data" name="ataj">
+
+                        <form class="row justify-content-around" action="https://sheetdb.io/api/v1/96xn69emj5lc8" metod="POST" name="ataj" id="form-ataj">
                             <div class="col-md-5 form-group my-2">
-                                <input name="nombres" type="text" class="form-control" placeholder="Nombres" id="nombres">
+                                <input name="data[nombres]" type="text" class="form-control" placeholder="Nombres" id="nombres" required>
                             </div>
 
                             <div class="col-md-5 form-group my-2">
-                                <input name="telefono" type="text" class="form-control" placeholder="Teléfono" id="telefono">
+                                <input name="data[telefono]" type="text" class="form-control" placeholder="Teléfono" id="telefono" required>
                             </div>
 
                             <div class="col-md-5 form-group my-2">
-                                <input name="correo" type="text" class="form-control" placeholder="Correo" id="correo">
+                                <input name="data[correo]" type="text" class="form-control" placeholder="Correo" id="correo" required>
                             </div>
 
                             <div class="col-md-5 form-group my-2">
-                                <input name="motivo" type="text" class="form-control" placeholder="Motivo consulta" id="motivo">
+                                <input name="data[motivo]" type="text" class="form-control" placeholder="Motivo consulta" id="motivo" required>
                             </div>
 
                             <div class="col-md-5 form-group my-2">
-                                <select name="modalidad" class="form-control" id="modalidad">
+                                <select name="data[modalidad]" class="form-control" id="modalidad" required>
                                     <option name="modalidad" value="">Escoja la modalidad de la consulta</option>
                                     <option name="modalidad" value="Presencial">Presencial</option>
                                     <option name="modalidad" value="Virtual">Virtual</option>
@@ -221,7 +223,7 @@
                             </div>
 
                             <div class="col-md-5 form-group my-2">
-                                <input name="fecha" type="date" class="form-control" placeholder="Campo" id="fecha">
+                                <input name="data[fecha]" type="date" class="form-control" placeholder="Campo" id="fecha" required min="<?php $hoy=date("Y-m-d"); echo $hoy;?>" >
                             </div>
                             <button type="submit" class="my-3 col-5 col-md-3 btn" id="button-form">
                                 AGENDAR CITA AHORA
@@ -232,7 +234,7 @@
                 </section>
 
                 <!-- Sección nosotros -->
-                <section class="row justify-content-center align-items-center my-4" id="nosotros">
+                <section class="row justify-content-center align-items-center my-4 wow fadeInUp" id="nosotros">
                     <div class="col-md-5">
                         <div class="row">
                             <h4 class="verde">
@@ -251,9 +253,7 @@
 
                     <div class="col-md-5">
                         <div class="row">
-                            <img class="img-responsive"
-                                src="https://media.istockphoto.com/photos/judges-male-lawyers-consultation-of-businessmen-legal-services-in-picture-id1234426314?b=1&k=6&m=1234426314&s=170667a&w=0&h=OWf5y-y_p2PvayEqbOd1VpSB046qXSRJkPLwb3NYPnU="
-                                alt="">
+                            <img class="img-responsive" src="https://media.istockphoto.com/photos/judges-male-lawyers-consultation-of-businessmen-legal-services-in-picture-id1234426314?b=1&k=6&m=1234426314&s=170667a&w=0&h=OWf5y-y_p2PvayEqbOd1VpSB046qXSRJkPLwb3NYPnU=" alt="">
                         </div>
                     </div>
                     <div class="col-10 my-5">
@@ -273,7 +273,7 @@
                 </section>
 
                 <!-- Categorías -->
-                <section class="row justify-content-center text-center">
+                <section class="row justify-content-center text-center wow fadeInUp">
                     <h2><i>NUESTROS ARTÍCULOS</i></h2>
                     <div class="col-12">
                         <nav class="text-center my-5">
@@ -290,19 +290,18 @@
                 <section class="row justify-content-center" id="articulos">
                         <div class="row  my-5">
                             <!-- ARTICULOS -->
-                            @foreach ($posts as $post)
                             <div class="owl-carousel" id="posts-carousel">
+                                @foreach ($posts as $post)
                                 <div class="card m-auto py-5">
                                     <img class="card-img-top" src="{{asset($post->featured)}}" alt="{{$post->title}}">
                                     <div class="card-body">
                                         <small class="card-txt-category">Categoría: <span
                                                 class="tag">{{$post->category->name}}</span></small>
                                         <h5 class="card-title my-2">{{$post->title}}</h5>
-                                        <div class="d-card-text">
+                                        <!-- <div class="d-card-text">
                                             {{$post->content}}
-                                        </div>
-                                        <a href="{{route('post', $post->id)}}" class="btn btn-success post-link"><b>Leer
-                                                más</b></a>
+                                        </div> -->
+                                        <a href="{{route('post', $post->id)}}" class="btn btn-success post-link mt-4"><b>Ver artículo</b></a>
                                         <hr>
                                         <div class="row">
                                             <div class="col-6 text-left">
@@ -320,8 +319,8 @@
                                         </div>
                                     </div>
                                 </div>
+                                @endforeach
                             </div>
-                            @endforeach
 
                         </div>
                         <div class="navs-container">
@@ -339,7 +338,8 @@
 
                 </section>
 
-                <section class="row justify-content-center" id="nuestros-servicios">
+                <!-- Nuestros servicios  -->
+                <section class="row justify-content-center wow fadeInUp" id="nuestros-servicios">
                     <div class="col-md-10">
                         <div class="row text-center">
                             <h1 class="blanco">Nuestras especialidades</h1>
@@ -442,7 +442,7 @@
                 </section>
 
                 <!-- Nuestro Equipo -->
-                <section class="row py-4 justify-content-around text-center" id="ne">
+                <section class="row py-4 justify-content-around text-center wow fadeInUp" id="ne">
                     <h2 class="my-4">NUESTRO EQUIPO DE TRABAJO</h2>
 
                     <div class="owl-carousel" id="ne-carousel">
@@ -492,7 +492,7 @@
             </main>
 
             <!-- Footer -->
-            <footer class="col-12" id="contacto">
+            <footer class="col-12 wow fadeInUp" id="contacto">
                 <div class="row justify-content-center align-items-center text-center p-4">
                     <div class="col-md-4">
                         <div class="row">
@@ -553,15 +553,16 @@
     <script src="/libs/owl-carousel/owl.carousel.min.js"></script>
     <script src="/libs/notify/notify.js"></script>
     <script src="/libs/swal/swal.min.js"></script>
+    <script src="/libs/wow/wow.min.js"></script>
     <script src="/js/index.js"></script>
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-BK29TDXCR3"></script>
     <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
 
-    gtag('config', 'G-BK29TDXCR3');
+        gtag('config', 'G-BK29TDXCR3');
     </script>
 </body>
 

@@ -1,3 +1,5 @@
+<script src="https://cdn.ckeditor.com/4.16.2/standard/ckeditor.js"></script>
+
 @extends('adminlte::page')
 
 @section('title', 'CRUD POSTS')
@@ -132,9 +134,6 @@
     <!-- /.modal-dialog -->
 </div>
 <!-- /.modal -->
-
-
-
 @stop
 
 
@@ -144,8 +143,11 @@
 <script>
 $(document).ready(function() {
     $('#categories').DataTable( {
+        responsive: true,
+        "scrollX": true,
         "order": [[ 3, "desc" ]]
     } );
 } );
+CKEDITOR.replace( 'content' );
 </script>
 @stop
