@@ -14,7 +14,7 @@
 	<meta http-equiv="pragma" content="no-cache" />
 	<meta property="og:type" content="article">
 	<meta property="og:title" content="{{$post->title}}">
-	<meta property="og:description" content="{{$post->content}}">
+	<meta property="og:description" content="<?php echo htmlspecialchars(trim(strip_tags($post->content)));?>">
 	<meta property="og:image" content="{{asset($post->featured)}}">
 	<meta property="og:url" content="https://semajconsultores.com.co/">
 	<meta property="og:site_name" content="Semaj Consultores SAS - Servicios Jurídicos">
