@@ -204,7 +204,7 @@ var form = document.getElementById('form-ataj');
         response => response.json()
     ).then((html) => {
       // you can put any JS code here
-      swal("Gracias por registrar sus datos", "De clic en ok", "success");
+      swal("Gracias por registrar sus datos", "Sus datos han sido registrados, pronto contactaremos con usted de acuerdo a los medios proporcionados  para confirmar hora de la cita", "success");
       $('input').val('');
       $('select').val('');
     });
